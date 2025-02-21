@@ -1,0 +1,25 @@
+Price increase - +10%
+
+Tier 1 - Cost 25
+thighHighs - Astolfo's Thigh Highs - 0.5/s
+makeEyeContact - Make Eye Contact With Astolfo - +0.4/click
+
+Tier 2 - Cost 80
+shirt - Astolfo's Cropped White Shirt - 1.6/s
+smile - Smile at Astolfo  - +1.3/click
+
+Tier 3 - Cost 200
+boots - Astolfo's Boots - 4/s
+wave - Wave at Astolfo - +3.2/click
+
+Tier 4 - Cost 700
+pinkNecktie - Astolfo's Pink Necktie - 14/s
+approach - Approach Astolfo - +11/click
+
+Tier 5 - Cost 2500
+blackBow - Astolfo's Black Bow - 50/s
+cuddle - Cuddle Astolfo - +45/click
+
+Tier 6 - Cost 15000
+pinkSkirt - Astolfo's Pink Skirt - 300/s
+kiss - Kiss Astolfo - +260/click
