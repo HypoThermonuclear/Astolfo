@@ -12,159 +12,274 @@
 </head>
 <body>
     <div id="container">
-        <div id="first-column">
-            <img onclick="clicked()" onpointerdown="pointerDown()" onpointerup="pointerUp()" src="Assets/astolfo.png" id="astolfo-image" draggable="false">
-        </div>
-        <div id="second-column">
-            <h1 style="text-align: center; font-weight: bold;">Astolfo Clicker</h1>
-            <div id="statistics">
+        <div id="main-column">
+            <div class="bar">
                 <p id="player-money">Money: 0.00$</p>
-                <p id="money-per-second">Money per Second: 0.00$/s</p>
-                <p id="money-per-click">Money per Click: 1.00$/click</p>
             </div>
-            <div id="shops">
-                <div class="items">
-                    <!--Astolfo's Thigh Highs-->
-                    <div class="item">
-                        <img src="Assets/thighHighs.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Astolfo's Thigh Highs</h1>
-                            <p id="thighHighsQuantity">Quantity: 0</p>
-                            <p id="thighHighsCost">Price: 25$</p>
-                            <p>Generates: 0.5$/s</p>
-                            <button onclick="purchaseThighHighs()">Purchase</button>
+            <div id="astolfo-image-container">
+                <img src="Assets/astolfo.png" id="astolfo-image" onclick="clicked()" draggable="false">
+            </div>
+            <div class="bar">
+                <p id="money-per-second">0.00$/s</p>
+                <p id="money-per-click">0.00$/click</p>
+            </div>
+        </div>
+        <div id="columns">
+            <div class="bar">
+                <p id="column-header">Shop</p>
+            </div>
+            <div id="changing-columns">
+                <!--! Shop -->
+                <div id="shop">
+                    <div id="shop-category">
+                        <button onclick="switchToPassive()">Passive</button>
+                        <button onclick="switchToActive()">Active</button>
+                    </div>
+                    <div id="passive-shop" class="shop-container">
+                        <div class="shop-content">
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/thighHighs.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Astolfo's Thigh Highs</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="thighHighsQuantity">Quantity: 0 (+0.5$/s each)</p>
+                                        <p id="thighHighsCost">Price: 25$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseThighHighs()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/shirt.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Astolfo's Shirt</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="shirtQuantity">Quantity: 0 (+1.6$/s each)</p>
+                                        <p id="shirtCost">Price: 80$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseShirt()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/boots.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Astolfo's Boots</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="bootsQuantity">Quantity: 0 (+4$/s each)</p>
+                                        <p id="bootsCost">Price: 200$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseBoots()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/pinkNecktie.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Astolfo's Pink Necktie</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="pinkNecktieQuantity">Quantity: 0 (+14$/s each)</p>
+                                        <p id="pinkNecktieCost">Price: 700$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchasePinkNecktie()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/blackBow.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Astolfo's Black Bow</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="blackBowQuantity">Quantity: 0 (+50$/s each)</p>
+                                        <p id="blackBowCost">Price: 2500$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseBlackBow()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/pinkSkirt.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Astolfo's Pink Skirt</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="bootsQuantity">Quantity: 0 (+/s each)</p>
+                                        <p id="bootsCost">Price: 15000$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchasePinkSkirt()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!--Astolfo's Shirt-->
-                    <div class="item">
-                        <img src="Assets/shirt.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Astolfo's Shirt</h1>
-                            <p id="shirtQuantity">Quantity: 0</p>
-                            <p id="shirtCost">Price: 80$</p>
-                            <p>Generates: 1.6$/s</p>
-                            <button onclick="purchaseShirt()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Astolfo's Boots-->
-                    <div class="item">
-                        <img src="Assets/boots.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Astolfo's Boots</h1>
-                            <p id="bootsQuantity">Quantity: 0</p>
-                            <p id="bootsCost">Price: 200$</p>
-                            <p>Generates: 4$/s</p>
-                            <button onclick="purchaseBoots()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Astolfo's Pink Necktie-->
-                    <div class="item">
-                        <img src="Assets/pinkNecktie.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Astolfo's Pink Necktie</h1>
-                            <p id="pinkNecktieQuantity">Quantity: 0</p>
-                            <p id="pinkNecktieCost">Price: 700$</p>
-                            <p>Generate: 14$/s</p>
-                            <button onclick="purchasePinkNecktie()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Astolfo's Black Bow-->
-                    <div class="item">
-                        <img src="Assets/blackBow.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Astolfo's Black Bows</h1>
-                            <p id="blackBowQuantity">Quantity: 0</p>
-                            <p id="blackBowCost">Price: 2500$</p>
-                            <p>Generates: 50$/s</p>
-                            <button onclick="purchaseBlackBow()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Astolfo's Pink Skirt-->
-                    <div class="item">
-                        <img src="Assets/pinkSkirt.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Astolfo's Pink Skirt</h1>
-                            <p id="pinkSkirtQuantity">Quantity: 0</p>
-                            <p id="pinkSkirtCost">Price: 15000$</p>
-                            <p>Generates: 300$/s</p>
-                            <button onclick="purchasePinkSkirt()">Purchase</button>
+                    <div id="active-shop" class="shop-container" style="display: none;">
+                        <div class="shop-content">
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/makeEyeContact.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Make Eye Contact</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="makeEyeContactQuantity">Quantity: 0 (+0.4$/click each)</p>
+                                        <p id="makeEyeContactCost">Price: 25$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseMakeEyeContact()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/smileAtAstolfo.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Smile at Astolfo</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="smileQuantity">Quantity: 0 (+1.3$/click each)</p>
+                                        <p id="smileCost">Price: 80$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseSmile()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/wave.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Wave at Astolfo</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="waveQuantity">Quantity: 0 (+3.2$/click each)</p>
+                                        <p id="waveCost">Price: 200$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseWave()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/approach.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Approach Astolfo</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="approachQuantity">Quantity: 0 (+11$/click each)</p>
+                                        <p id="approachCost">Price: 700$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseApproach()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/cuddle.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Cuddle Astolfo</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="cuddleQuantity">Quantity: 0 (+45$/click each)</p>
+                                        <p id="cuddleCost">Price: 2500$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseCuddle()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="shop-item">
+                                <div class="shop-image-container">
+                                    <img src="Assets/kiss.png" draggable="false">
+                                </div>
+                                <div class="shop-item-content">
+                                    <div class="shop-title-container">
+                                        <p>Kiss Astolfo</p>
+                                    </div>
+                                    <div class="shop-item-details">
+                                        <p id="kissQuantity">Quantity: 0 (+260$/click each)</p>
+                                        <p id="kissCost">Price: 15000$</p>
+                                    </div>
+                                    <div class="shop-item-button-container">
+                                        <button onclick="purchaseKiss()">Purchase</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- CLICK THINGIES -->
-                <div class="items">
-                    <!--Make Eye Contact With Astolfo-->
-                    <div class="item">
-                        <img src="Assets/makeEyeContact.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Make Eye Contact</h1>
-                            <p id="makeEyeContactQuantity">Quantity: 0</p>
-                            <p id="makeEyeContactCost">Price: 25$</p>
-                            <p>Generates: 0.4$/click</p>
-                            <button onclick="purchaseMakeEyeContact()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Smile at Astolfo-->
-                    <div class="item">
-                        <img src="Assets/smileAtAstolfo.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Smile at Astolfo</h1>
-                            <p id="smileQuantity">Quantity: 0</p>
-                            <p id="smileCost">Price: 80$</p>
-                            <p>Generates: 1.3$/click</p>
-                            <button onclick="purchaseSmile()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Wave at Astolfo-->
-                    <div class="item">
-                        <img src="Assets/wave.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Wave at Astolfo</h1>
-                            <p id="waveQuantity">Quantity: 0</p>
-                            <p id="waveCost">Price: 200$</p>
-                            <p>Generates: 3.2$/click</p>
-                            <button onclick="purchaseWave()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Approach Astolfo-->
-                    <div class="item">
-                        <img src="Assets/approach.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Approach Astolfo</h1>
-                            <p id="approachQuantity">Quantity: 0</p>
-                            <p id="approachCost">Price: 700$</p>
-                            <p>Generate: 11$/click</p>
-                            <button onclick="purchaseApproach()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Cuddle Astolfo-->
-                    <div class="item">
-                        <img src="Assets/cuddle.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Cuddle Astolfo</h1>
-                            <p id="cuddleQuantity">Quantity: 0</p>
-                            <p id="cuddleCost">Price: 2500$</p>
-                            <p>Generates: 45$/click</p>
-                            <button onclick="purchaseCuddle()">Purchase</button>
-                        </div>
-                    </div>
-                    <!--Kiss Astolfo-->
-                    <div class="item">
-                        <img src="Assets/kiss.png" height="150px" draggable="false">
-                        <div class="details">
-                            <h1>Kiss Astolfo</h1>
-                            <p id="kissQuantity">Quantity: 0</p>
-                            <p id="kissCost">Price: 15000$</p>
-                            <p>Generates: 260$/s</p>
-                            <button onclick="purchaseKiss()">Purchase</button>
+                <!--! Stats -->
+                <div id="stats" style="display: none;">
+
+                </div>
+                <!--! Settings -->
+                <div id="settings" style="display: none;">
+                    <div id="settings-content">
+                        <div id="progress-buttons">
+                            <p>Progress Buttons</p>
+                            <button onclick="saveProgress()">Save Progress</button>
+                            <button onclick="loadProgress()">Load Progress</button>
+                            <button onclick="resetProgress()">Reset Progress</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="progress-buttons">
-                <button onclick="saveProgress()">Save Progress</button>
-                <button onclick="loadProgress()">Load Progress</button>
-                <button onclick="resetProgress()">Reset Progress</button>
+            <div class="bar" id="column-select">
+                <button onclick="switchToShop()"> <!-- Shop Icon -->
+                    <svg width="54" height="48" viewBox="0 0 54 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.333313 2.25C0.333313 1.00312 1.33644 0 2.58331 0H6.84894C8.91144 0 10.7396 1.2 11.5927 3H50.1239C52.5896 3 54.3896 5.34375 53.7427 7.725L49.8989 22.0031C49.1021 24.9469 46.4302 27 43.3833 27H16.3364L16.8427 29.6719C17.0489 30.7313 17.9771 31.5 19.0552 31.5H46.0833C47.3302 31.5 48.3333 32.5031 48.3333 33.75C48.3333 34.9969 47.3302 36 46.0833 36H19.0552C15.8114 36 13.0271 33.6937 12.4271 30.5156L7.58956 5.10938C7.52394 4.75313 7.21456 4.5 6.84894 4.5H2.58331C1.33644 4.5 0.333313 3.49688 0.333313 2.25ZM12.3333 43.5C12.3333 42.909 12.4497 42.3239 12.6759 41.7779C12.902 41.232 13.2335 40.7359 13.6513 40.318C14.0692 39.9002 14.5653 39.5687 15.1112 39.3425C15.6572 39.1164 16.2424 39 16.8333 39C17.4243 39 18.0094 39.1164 18.5554 39.3425C19.1014 39.5687 19.5974 39.9002 20.0153 40.318C20.4332 40.7359 20.7646 41.232 20.9908 41.7779C21.2169 42.3239 21.3333 42.909 21.3333 43.5C21.3333 44.091 21.2169 44.6761 20.9908 45.2221C20.7646 45.768 20.4332 46.2641 20.0153 46.682C19.5974 47.0998 19.1014 47.4313 18.5554 47.6575C18.0094 47.8836 17.4243 48 16.8333 48C16.2424 48 15.6572 47.8836 15.1112 47.6575C14.5653 47.4313 14.0692 47.0998 13.6513 46.682C13.2335 46.2641 12.902 45.768 12.6759 45.2221C12.4497 44.6761 12.3333 44.091 12.3333 43.5ZM43.8333 39C45.0268 39 46.1714 39.4741 47.0153 40.318C47.8592 41.1619 48.3333 42.3065 48.3333 43.5C48.3333 44.6935 47.8592 45.8381 47.0153 46.682C46.1714 47.5259 45.0268 48 43.8333 48C42.6398 48 41.4952 47.5259 40.6513 46.682C39.8074 45.8381 39.3333 44.6935 39.3333 43.5C39.3333 42.3065 39.8074 41.1619 40.6513 40.318C41.4952 39.4741 42.6398 39 43.8333 39Z" fill="#4A474C"/>
+                    </svg>
+                </button>
+                <button onclick="switchToStats()"> <!-- Stats Icon -->
+                    <svg width="43" height="42" viewBox="0 0 43 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.6666 4.5C15.6666 2.01562 17.6823 0 20.1666 0H23.1666C25.651 0 27.6666 2.01562 27.6666 4.5V37.5C27.6666 39.9844 25.651 42 23.1666 42H20.1666C17.6823 42 15.6666 39.9844 15.6666 37.5V4.5ZM0.666626 22.5C0.666626 20.0156 2.68225 18 5.16663 18H8.16663C10.651 18 12.6666 20.0156 12.6666 22.5V37.5C12.6666 39.9844 10.651 42 8.16663 42H5.16663C2.68225 42 0.666626 39.9844 0.666626 37.5V22.5ZM35.1666 6H38.1666C40.651 6 42.6666 8.01562 42.6666 10.5V37.5C42.6666 39.9844 40.651 42 38.1666 42H35.1666C32.6823 42 30.6666 39.9844 30.6666 37.5V10.5C30.6666 8.01562 32.6823 6 35.1666 6Z" fill="#4A474C"/>
+                    </svg>
+                </button>
+                <button onclick="switchToSettings()"> <!-- Settings Icon -->
+                    <svg width="46" height="48" viewBox="0 0 46 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M45.4907 15.6188C45.7907 16.4344 45.5376 17.3438 44.8907 17.925L40.8313 21.6188C40.9344 22.3969 40.9907 23.1938 40.9907 24C40.9907 24.8062 40.9344 25.6031 40.8313 26.3812L44.8907 30.075C45.5376 30.6562 45.7907 31.5656 45.4907 32.3812C45.0782 33.4969 44.5813 34.5656 44.0094 35.5969L43.5688 36.3562C42.9501 37.3875 42.2563 38.3625 41.4969 39.2812C40.9438 39.9562 40.025 40.1812 39.2 39.9187L33.9782 38.2594C32.7219 39.225 31.3344 40.0312 29.8532 40.6406L28.6813 45.9938C28.4938 46.8469 27.8376 47.5219 26.975 47.6625C25.6813 47.8781 24.35 47.9906 22.9907 47.9906C21.6313 47.9906 20.3 47.8781 19.0063 47.6625C18.1438 47.5219 17.4875 46.8469 17.3 45.9938L16.1282 40.6406C14.6469 40.0312 13.2594 39.225 12.0032 38.2594L6.79067 39.9281C5.96567 40.1906 5.04692 39.9563 4.4938 39.2906C3.73442 38.3719 3.04067 37.3969 2.42192 36.3656L1.9813 35.6062C1.40942 34.575 0.912549 33.5062 0.500049 32.3906C0.200049 31.575 0.453173 30.6656 1.10005 30.0844L5.15942 26.3906C5.0563 25.6031 5.00005 24.8062 5.00005 24C5.00005 23.1938 5.0563 22.3969 5.15942 21.6188L1.10005 17.925C0.453173 17.3438 0.200049 16.4344 0.500049 15.6188C0.912549 14.5031 1.40942 13.4344 1.9813 12.4031L2.42192 11.6437C3.04067 10.6125 3.73442 9.6375 4.4938 8.71875C5.04692 8.04375 5.96567 7.81875 6.79067 8.08125L12.0125 9.74063C13.2688 8.775 14.6563 7.96875 16.1375 7.35938L17.3094 2.00625C17.4969 1.15312 18.1532 0.478125 19.0157 0.3375C20.3094 0.1125 21.6407 0 23 0C24.3594 0 25.6907 0.1125 26.9844 0.328125C27.8469 0.46875 28.5032 1.14375 28.6907 1.99687L29.8626 7.35C31.3438 7.95938 32.7313 8.76563 33.9875 9.73125L39.2094 8.07187C40.0344 7.80937 40.9532 8.04375 41.5063 8.70938C42.2657 9.62813 42.9594 10.6031 43.5782 11.6344L44.0188 12.3937C44.5907 13.425 45.0876 14.4937 45.5 15.6094L45.4907 15.6188ZM23 31.5C24.9892 31.5 26.8968 30.7098 28.3034 29.3033C29.7099 27.8968 30.5 25.9891 30.5 24C30.5 22.0109 29.7099 20.1032 28.3034 18.6967C26.8968 17.2902 24.9892 16.5 23 16.5C21.0109 16.5 19.1033 17.2902 17.6967 18.6967C16.2902 20.1032 15.5 22.0109 15.5 24C15.5 25.9891 16.2902 27.8968 17.6967 29.3033C19.1033 30.7098 21.0109 31.5 23 31.5Z" fill="#4A474C"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </div>

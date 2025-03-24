@@ -36,6 +36,17 @@ const cuddleCostText = document.getElementById("cuddleCost");
 const kissAmountText = document.getElementById("kissQuantity");
 const kissCostText = document.getElementById("kissCost");
 
+// Get Buttons
+const shopButton = document.getElementById("shop-button");
+const statsButton = document.getElementById("stats-button");
+const settingsButton = document.getElementById("settings-button");
+
+// Main Displays
+const columnHeaderText = document.getElementById("column-header");
+const shopDisplay = document.getElementById("shop");
+const statsDisplay = document.getElementById("stats");
+const settingsDisplay = document.getElementById("settings");
+
 // Set the variables related to money
 let money = 0;
 let moneyPerSecond = 0;
@@ -76,13 +87,13 @@ function updateMoneyCounter() {
 
 // List of things to do when the money per second counter is updated
 function updateMoneyPerSecondCounter() {
-    moneyPerSecondPlaceholder.innerText = `Money per Second: ${moneyPerSecond.toFixed(2)}$/s`;
+    moneyPerSecondPlaceholder.innerText = `${moneyPerSecond.toFixed(2)}$/s`;
     moneyPerSecondPlaceholder.classList.add("click-animation");
 }
 
 // List of things to do when the money per click counter is updated
 function updateMoneyPerClickCounter() {
-    moneyPerClickPlaceholder.innerText = `Money per Click: ${moneyPerClick.toFixed(2)}$/click`;
+    moneyPerClickPlaceholder.innerText = `${moneyPerClick.toFixed(2)}$/click`;
     moneyPerClickPlaceholder.classList.add("click-animation");
 }
 
@@ -499,4 +510,35 @@ function purchaseKiss() {
 // List of things to do when the window is loaded
 window.onload = function() {
     setInterval(timer, 10);
+}
+
+function switchToActive() {
+    document.getElementById("passive-shop").style.display = "none";
+    document.getElementById("active-shop").style.display = "flex";
+}
+
+function switchToPassive() {
+    document.getElementById("passive-shop").style.display = "flex";
+    document.getElementById("active-shop").style.display = "none";
+}
+
+function switchToShop() {
+    columnHeaderText.textContent = "Shop";
+    shopDisplay.style.display = "block";
+    statsDisplay.style.display = "none";
+    settingsDisplay.style.display = "none";
+}
+
+function switchToStats() {
+    columnHeaderText.textContent = "Stats";
+    shopDisplay.style.display = "none";
+    statsDisplay.style.display = "block";
+    settingsDisplay.style.display = "none";
+}
+
+function switchToSettings() {
+    columnHeaderText.textContent = "Settings";
+    shopDisplay.style.display = "none";
+    statsDisplay.style.display = "none";
+    settingsDisplay.style.display = "block";
 }
